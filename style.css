@@ -1,78 +1,147 @@
-/* Define color scheme and fonts */
-:root {
-    --bg-color: #f4f7f9;
-    --card-bg-color: #ffffff;
-    --font-color: #333333;
-    --primary-color: #007bff;
-    --border-color: #e0e0e0;
-    --font-family: 'Arial', sans-serif;
-}
-
-/* Basic Reset and Body Styling */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
+/* Basic Setup */
 body {
-    font-family: var(--font-family);
-    background-color: var(--bg-color);
-    color: var(--font-color);
-    line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* On larger screens, use a two-column layout */
+@media (min-width: 768px) {
+    .container {
+        grid-template-columns: 1fr 1fr;
+    }
+    .chart-container {
+        grid-column: 1 / -1; /* Make chart span both columns */
+    }
 }
 
 header {
-    background-color: var(--primary-color);
+    background-color: #343a40;
     color: white;
-    padding: 1rem 2rem;
     text-align: center;
-    margin-bottom: 2rem;
+    padding: 1rem 0;
 }
 
-/* Main Layout Container */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    padding: 0 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
-
-/* Controls and Chart Containers */
-.controls-container, .chart-container {
-    background-color: var(--card-bg-color);
-    border-radius: 8px;
+/* Card-like styling for sections */
+.form-container, .expense-list-container, .chart-container {
+    background-color: #fff;
     padding: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.controls-container {
-    flex: 1;
-    min-width: 250px; /* Ensures controls don't get too squished */
-}
-
-.chart-container {
-    flex: 3;
-    min-width: 300px; /* Ensures chart has enough space */
-}
-
-/* Form Element Styling */
-.controls-container h2 {
+h2, h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
     margin-bottom: 1rem;
 }
 
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+/* Form Styles */
+.form-group {
+    margin-bottom: 1rem;
 }
 
-select {
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-group input, .form-group select {
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
     border-radius: 4px;
-    border: 1px solid var(--border-color);
+    box-sizing: border-box; /* Important for padding and width */
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Expense List Styles */
+#expense-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 0.75rem 1rem;
+    border: 1px solid #e9ecef;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.expense-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-description {
+    font-weight: 600;
+}
+
+.expense-category {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.expense-amount {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #dc3545; /* Red for expenses */
+}
+
+/* --- NEW STYLES FOR DELETE FUNCTIONALITY --- */
+
+/* Container for the amount and the delete button */
+.expense-action {
+    display: flex;
+    align-items: center;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #dc3545; /* Red color */
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-left: 1rem;
+    padding: 0 5px;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.delete-btn:hover {
+    opacity: 1;
 }
