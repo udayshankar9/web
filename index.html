@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Climate Change Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Global Climate Change Dashboard</h1>
+    </header>
+
+    <main>
+        <div class="controls-container">
+            <h2>Controls</h2>
+            <label for="dataType">Select Data:</label>
+            <select id="dataType">
+                <option value="temperature">Temperature Anomalies</option>
+                <option value="co2">CO₂ Concentration</option>
+                <option value="seaLevel">Sea Level Rise</option>
+            </select>
+        </div>
+
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
