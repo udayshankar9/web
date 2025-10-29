@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <span class="expense-category">${expense.category}</span>
             </div>
             <div class="expense-action">
-                <span class="expense-amount">$${expense.amount.toFixed(2)}</span>
+                <span class="expense-amount">Rs.${expense.amount.toFixed(2)}</span>
                 <button class="delete-btn" title="Delete Expense">&times;</button>
             </div>
         `;
